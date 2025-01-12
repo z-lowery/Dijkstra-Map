@@ -161,6 +161,7 @@ public class WebApp {
 		html = html.replaceFirst("<!-- RESPONSE GOES HERE -->",response);
 		html = html.replaceFirst("<!-- PROMPTS GO HERE -->",prompts);
 
+		in.close();
 		return html;
     }
 
