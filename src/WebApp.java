@@ -61,7 +61,7 @@ public class WebApp {
 			System.out.println("Query includes args: "+keyValuePairs);
 
 			// create backend and frontend objects to respond to this request
-			FrontendInterface frontend = createWorkingFrontend("./campus.dot");
+			FrontendInterface frontend = createWorkingFrontend("src\\campus.dot");
 			// compute answer to user's requested problem based on query args:
 			String response = generateResponseHTML(keyValuePairs,frontend);
 			// generate HTML prompts for user for make next requests
@@ -148,7 +148,7 @@ public class WebApp {
     private static String composeHTML(String response, String prompts) throws IOException {
 		// read contents of template file into html string
 		String html = "";
-		Scanner in = new Scanner(new File("template.html"));
+		Scanner in = new Scanner(new File("src\\template.html"));
 		while(in.hasNextLine()){
 			html += in.nextLine() + "\n";
 		}
@@ -169,7 +169,7 @@ public class WebApp {
 			Map<String,String> keyValuePairs = parseQuery(query);
 
 			// create backend and frontend objects to respond to this request
-			FrontendInterface frontend = createWorkingFrontend("./campus.dot");
+			FrontendInterface frontend = createWorkingFrontend("src\\campus.dot");
 			// compute answer to user's requested problem based on query args:
 			String response = generateResponseHTML(keyValuePairs,frontend);
 			// generate HTML prompts for user for make next requests
