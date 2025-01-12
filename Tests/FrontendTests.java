@@ -1,8 +1,13 @@
-package src;
+package Tests;
 
 import java.util.NoSuchElementException;
 import org.junit.*;
 import junit.framework.AssertionFailedError;
+import src.Backend;
+import src.DijkstraGraph;
+import src.Frontend;
+import src.GraphADT;
+import src.Graph_Placeholder;
 
 public class FrontendTests {
 

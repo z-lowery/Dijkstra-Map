@@ -1,6 +1,9 @@
-package src;
+package Tests;
 
 import org.junit.jupiter.api.Test;
+
+import src.HashtableMap;
+
 import org.junit.jupiter.api.Assertions;
 import java.security.Key;
 import java.util.*;
