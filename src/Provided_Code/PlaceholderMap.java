@@ -1,4 +1,4 @@
-package DijkstraMap;
+package src.Provided_Code;
 
 import java.util.List;
 import java.util.HashMap;

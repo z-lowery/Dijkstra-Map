@@ -1,5 +1,6 @@
-package DijkstraMap;
+package src.Personal_Code;
 
+import src.Provided_Code.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import java.security.Key;

@@ -1,5 +1,8 @@
-package DijkstraMap;
+package src;
 
+import src.Personal_Code.DijkstraGraph;
+import src.Personal_Code.Frontend;
+import src.Provided_Code.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import com.sun.net.httpserver.HttpHandler;
@@ -15,14 +18,9 @@ import java.util.stream.Stream;
  *
  * On GoogleVM (after setting firewall to allow http traffic):
  *     run webserver using command: sudo java WebApp 80
- * Then visit through browser via http://EXTERNAL_IP/
- *
- * On Department (CSL) Linux Machines:
- *     copy all files to /afs/cs.wisc.edu/p/cs400-web/CS_LOGIN/
- *     compile WebApp in that location
- *     there is no need to run your sever, the provided index.cgi handles this 
- * Then visit through browser via https://cs400-web.cs.wisc.edu/CS_LOGIN/
+ * 	   Then visit through browser via http://EXTERNAL_IP/
  */
+
 public class WebApp {
     public static void main(String[] args) throws IOException {
 		// expects the port number as a command line argument to this program

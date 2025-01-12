@@ -1,4 +1,4 @@
-package DijkstraMap;
+package src.Provided_Code;
 
 import java.io.IOException;
 import java.util.List;

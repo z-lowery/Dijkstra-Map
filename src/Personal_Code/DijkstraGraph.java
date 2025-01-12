@@ -1,12 +1,6 @@
-package DijkstraMap;
+package src.Personal_Code;
 
-// === CS400 File Header Information ===
-// Name: Zander Lowery
-// Email: zrlowery@wisc.edu
-// Group and Team: P2.2511
-// Lecturer: Gary
-// Notes to Grader: Good luck.
-
+import src.Provided_Code.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

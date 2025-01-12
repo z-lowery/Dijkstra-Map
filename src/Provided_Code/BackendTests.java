@@ -1,4 +1,4 @@
-package DijkstraMap;
+package src.Provided_Code;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -69,7 +69,7 @@ public class BackendTests
    /**
     * Test Case: roleTest3
     * Purpose: Check if the backend correctly identifies the furthest reachable location from a given start node.
-    * Also, verify that walking times
+    * Also, verify that walking times are as expected.
     */
    @Test
    public void roleTest3()

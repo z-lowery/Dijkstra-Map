@@ -1,5 +1,6 @@
-package DijkstraMap;
+package src.Personal_Code;
 
+import src.Provided_Code.*;
 import java.util.*;
 
 public class Frontend implements FrontendInterface {
