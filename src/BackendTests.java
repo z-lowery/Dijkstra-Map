@@ -1,4 +1,4 @@
-package src.Provided_Code;
+package src;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -22,25 +22,26 @@ public class BackendTests
        Graph_Placeholder graph = new Graph_Placeholder();
        Backend backend = new Backend(graph);
        // Relative path to the DOT file
-       String relativePath = "campus.dot";
+       String relativePath = "src\\campus.dot";
       
        // Get the absolute path
        Path absolutePath = Paths.get(relativePath).toAbsolutePath();
       Assertions.assertTrue(Files.exists(absolutePath), "File not found: " + absolutePath);
-       // Mock the loading of graph data from the file
+       /* Mock the loading of graph data from the file
        List<String> graphData = Arrays.asList(
            "A -> B [weight=5.0]",
            "B -> C [weight=3.0]",
            "A -> C [weight=8.0]"
-       );
-       backend.loadGraphData(absolutePath.toString());
+       ); */
+       backend.loadGraphData(relativePath.toString());
        // Check if the locations are loaded
        List<String> allLocations = backend.getListOfAllLocations();
-       Assertions.assertTrue(allLocations.containsAll(Arrays.asList("A", "B", "C")), "Locations not loaded correctly.");
+       Assertions.assertTrue(allLocations.containsAll(Arrays.asList("Union South", "Computer Sciences and Statistics", 
+       "Atmospheric, Oceanic and Space Sciences", "Memorial Union")), "Locations not loaded correctly.");
        // Ensure the edges are inserted correctly
-       Assertions.assertEquals(5.0, graph.getEdge("A", "B"), "Edge A -> B not loaded correctly.");
-       Assertions.assertEquals(3.0, graph.getEdge("B", "C"), "Edge B -> C not loaded correctly.");
-       Assertions.assertEquals(8.0, graph.getEdge("A", "C"), "Edge A -> C not loaded correctly.");
+       Assertions.assertEquals(1.0, graph.getEdge("Union South", "Computer Sciences and Statistics"), "Edge A -> B not loaded correctly.");
+       Assertions.assertEquals(2.0, graph.getEdge("Computer Sciences and Statistics", "Atmospheric, Oceanic and Space Sciences"), "Edge B -> C not loaded correctly.");
+       Assertions.assertEquals(3.0, graph.getEdge("Atmospheric, Oceanic and Space Sciences", "Memorial Union"), "Edge A -> C not loaded correctly.");
    }
    /**
     * Test Case: roleTest2
@@ -52,15 +53,13 @@ public class BackendTests
    {
        Graph_Placeholder graph = new Graph_Placeholder();
        Backend backend = new Backend(graph);
-       // Insert nodes and edges for testing
-       graph.insertNode("Union South");
-       graph.insertNode("Computer Sciences and Statistics");
-       graph.insertNode("Atmospheric, Oceanic and Space Sciences");
-       graph.insertEdge("Union South", "Computer Sciences and Statistics", 5.0);
-       graph.insertEdge("Computer Sciences and Statistics", "Atmospheric, Oceanic and Space Sciences", 3.0);
+
        // Test: Find the shortest path between Union South and Atmospheric, Oceanic and Space Sciences
        List<String> path = backend.findLocationsOnShortestPath("Union South", "Atmospheric, Oceanic and Space Sciences");
-       Assertions.assertTrue(path.isEmpty(), "Shortest path between Union South and Atmospheric, Oceanic and Space Sciences is incorrect.");
+       Assertions.assertEquals(Arrays.asList("Union South", "Computer Sciences and Statistics", 
+       "Atmospheric, Oceanic and Space Sciences"), path, 
+            "Shortest path between Union South and Atmospheric, Oceanic and Space Sciences is incorrect.");
+       
        // Test: Shortest path between Computer Sciences and Statistics and Atmospheric, Oceanic and Space Sciences
        path = backend.findLocationsOnShortestPath("Computer Sciences and Statistics", "Atmospheric, Oceanic and Space Sciences");
        Assertions.assertEquals(Arrays.asList("Computer Sciences and Statistics", "Atmospheric, Oceanic and Space Sciences"), path,
@@ -76,17 +75,13 @@ public class BackendTests
    {
        Graph_Placeholder graph = new Graph_Placeholder();
        Backend backend = new Backend(graph);
-       // Insert nodes and edges for testing
-       graph.insertNode("Union South");
-       graph.insertNode("Computer Sciences and Statistics");
-       graph.insertNode("Atmospheric, Oceanic and Space Sciences");
-       graph.insertEdge("Union South", "Computer Sciences and Statistics", 5.0);
-       graph.insertEdge("Computer Sciences and Statistics", "Atmospheric, Oceanic and Space Sciences", 3.0);
+
        String furthestLocation = backend.getFurthestDestinationFrom("Union South");
        // Expected furthest location based on the placeholder setup
        Assertions.assertEquals("Atmospheric, Oceanic and Space Sciences", furthestLocation, "Furthest location from Union South is incorrect.");
        // Test: Walking times
        List<Double> times = backend.findTimesOnShortestPath("Union South", "Atmospheric, Oceanic and Space Sciences");
-       Assertions.assertTrue(times.isEmpty(), "Walking times from Union South to Atmospheric, Oceanic and Space Sciences are incorrect.");
+       System.out.println(times);
+       Assertions.assertEquals(Arrays.asList(1.0,2.0), times, "Walking times from Union South to Atmospheric, Oceanic and Space Sciences are incorrect.");
    }
 }

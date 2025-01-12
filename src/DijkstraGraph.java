@@ -1,6 +1,5 @@
-package src.Personal_Code;
+package src;
 
-import src.Provided_Code.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

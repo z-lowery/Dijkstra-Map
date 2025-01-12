@@ -1,6 +1,5 @@
-package src.Personal_Code;
+package src;
 
-import src.Provided_Code.*;
 import java.util.NoSuchElementException;
 import org.junit.*;
 import junit.framework.AssertionFailedError;
@@ -39,7 +38,7 @@ public class FrontendTests {
 
         // confirms that loadGraphData() works as expected
         try {
-            backend.loadGraphData("campus.dot");
+            backend.loadGraphData("src\\campus.dot");
         } catch (Exception e) {
             throw new AssertionFailedError("Problem loading graph data");
         }
@@ -58,7 +57,7 @@ public class FrontendTests {
         Backend backend = new Backend(graph);
 
         try {
-            backend.loadGraphData("campus.dot");
+            backend.loadGraphData("src\\campus.dot");
         } catch (Exception e) {
             throw new AssertionFailedError("Problem loading graph data");
         }
@@ -89,7 +88,7 @@ public class FrontendTests {
         Frontend frontend = new Frontend(backend);
 
         try {
-            backend.loadGraphData("campus.dot");
+            backend.loadGraphData("src\\campus.dot");
         } catch (Exception e) {
             throw new AssertionFailedError("Problem loading graph data");
         }
