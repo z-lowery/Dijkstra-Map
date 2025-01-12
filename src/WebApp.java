@@ -2,10 +2,9 @@ package src;
 
 import java.net.*;
 import java.nio.charset.StandardCharsets;
-import com.sun.net.httpserver.HttpHandler;
+
 import com.sun.net.httpserver.*;
 import java.io.*;
-import java.io.File;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -16,6 +15,11 @@ import java.util.stream.Stream;
  * On GoogleVM (after setting firewall to allow http traffic):
  *     run webserver using command: sudo java WebApp 80
  * 	   Then visit through browser via http://EXTERNAL_IP/
+ * 
+ * Command line (for IDEs like VSCode):
+ *     1) Run javac -cp lib\junit.jar src\*.java
+ * 	   2) Run using command: sudo java src/WebApp [port_number] (if on Windows, no need to use sudo)
+ *     3) Visit through browser via http://localhost:[port_number]/
  */
 
 public class WebApp {
